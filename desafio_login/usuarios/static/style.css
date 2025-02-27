@@ -6,6 +6,8 @@ body {
   min-height: 100vh;
   margin: 0;
   background-color: #f0f0f0;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .form-container,
@@ -14,14 +16,16 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  margin: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
 }
 
 h1 {
   text-align: center;
   color: #333;
   margin-bottom: 25px;
+  font-size: 24px;
 }
 
 label {
@@ -34,12 +38,13 @@ label {
 input[type="email"],
 input[type="password"],
 input[type="text"] {
-  width: calc(100% - 20px);
-  padding: 10px;
+  width: 100%;
+  padding: 12px;
   margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
+  box-sizing: border-box;
   transition: border-color 0.3s ease;
 }
 
@@ -53,7 +58,7 @@ input[type="text"]:focus {
 button {
   background-color: #313469;
   color: white;
-  padding: 12px 20px;
+  padding: 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -103,11 +108,42 @@ a:hover {
   border: 1px solid #f5c6cb;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .form-container,
   .menu-container {
-    width: 90%;
-    margin: 10px;
-    padding: 20px;
+    padding: 25px;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .form-container,
+  .menu-container {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  a {
+    margin-top: 15px;
   }
 }
