@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Usuario
+from django.contrib.auth.decorators import login_required
 import re
 
 def login_view(request):
@@ -52,5 +53,10 @@ def registrar_view(request):
 
     return render(request, "usuarios/registrar.html")
 
+@login_required(login_url='/login/') 
+
 def menu_view(request):
-    return render(request, "usuarios/menu.html")
+
+    nome_usuario = request.user.first_name
+
+    return render(request, "usuarios/menu.html", {"nome_usuario": nome_usuario})
